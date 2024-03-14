@@ -13,7 +13,7 @@ if(isset($_POST['id'])){
         <div class="row">
             <div class="col-12">
                 <div class="mb-3">
-                    <label for="name" class="form-label">Class Name & Subject</label>
+                    <label for="name" class="form-label">Название класса и тема</label>
                     <input type="text" class="form-control" id="name" name="name" value="<?= $name ?? "" ?>" required="required">
                 </div>
             </div>

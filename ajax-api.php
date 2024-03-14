@@ -21,7 +21,7 @@ switch($action){
         $response = $actionClass->save_attendance();
         break;
     default:
-        $response = ["status" => "error", "msg" => "Undefined API Action!"];
+        $response = ["status" => "error", "msg" => "Неопределенное действие API!"];
         break;
 }
 

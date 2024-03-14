@@ -20,9 +20,9 @@ $studentList = $actionClass->attendanceStudents($class_id, $class_date);
                     <div class="container-fluid">
                         <div class="row align-items-end">
                             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                <label for="class_id" class="form-label">Class</label>
+                                <label for="class_id" class="form-label">Класс</label>
                                 <select name="class_id" id="class_id" class="form-select" required="required">
-                                    <option value="" disabled <?= empty($class_id) ? "selected" : "" ?>> -- Select Here -- </option>
+                                    <option value="" disabled <?= empty($class_id) ? "selected" : "" ?>> -- Выберите здесь -- </option>
                                     <?php if(!empty($classList) && is_array($classList)): ?>
                                     <?php foreach($classList as $row): ?>
                                         <option value="<?= $row['id'] ?>" <?= (isset($class_id) && $class_id == $row['id']) ? "selected" : "" ?>><?= $row['name'] ?></option>
@@ -31,7 +31,7 @@ $studentList = $actionClass->attendanceStudents($class_id, $class_date);
                                 </select>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                <label for="class_date" class="form-label">Date</label>
+                                <label for="class_date" class="form-label">Дата</label>
                                 <input type="date" name="class_date" id="class_date" class="form-control" value="<?= $class_date ?? '' ?>" required="required">
                             </div>
                         </div>
@@ -41,7 +41,7 @@ $studentList = $actionClass->attendanceStudents($class_id, $class_date);
             <?php if(!empty($class_id) && !empty($class_date)): ?>
             <div class="card shadow mb-3">
                 <div class="card-header rounded-0">
-                    <div class="card-title">Attendance Sheet</div>
+                    <div class="card-title">Таблица посещаемости</div>
                 </div>
                 <div class="card-body">
                     <div class="container-fluid">
@@ -56,16 +56,16 @@ $studentList = $actionClass->attendanceStudents($class_id, $class_date);
                                 </colgroup>
                                 <thead class="bg-primary">
                                     <tr>
-                                        <th class="text-center bg-transparent text-light">Students</th>
-                                        <th class="text-center bg-transparent text-light">Present</th>
-                                        <th class="text-center bg-transparent text-light">Late</th>
-                                        <th class="text-center bg-transparent text-light">Absent</th>
-                                        <th class="text-center bg-transparent text-light">Holiday</th>
+                                        <th class="text-center bg-transparent text-light">Студенты</th>
+                                        <th class="text-center bg-transparent text-light">Присутствует</th>
+                                        <th class="text-center bg-transparent text-light">Опоздал</th>
+                                        <th class="text-center bg-transparent text-light">Не было</th>
+                                        <th class="text-center bg-transparent text-light">Праздник</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th class="text-center px-2 py-1 text-dark-emphasis">Check/Uncheck All</th>
+                                        <th class="text-center px-2 py-1 text-dark-emphasis">Установите/снимите флажки со всех</th>
                                         <th class="text-center px-2 py-1 text-dark-emphasis">
                                             <div class="form-check d-flex w-100 justify-content-center">
                                                 <input class="form-check-input checkAll" type="checkbox" id="PCheckAll">
@@ -134,7 +134,7 @@ $studentList = $actionClass->attendanceStudents($class_id, $class_date);
                                     <?php endforeach; ?>
                                     <?php else: ?>
                                         <tr>
-                                            <td colspan="5" class="px-2 py-1 text-center">No Student Listed Yet</td>
+                                            <td colspan="5" class="px-2 py-1 text-center">В списке пока нет ни одного студента</td>
                                         </tr>
                                     <?php endif; ?>
                                 </tbody>
@@ -145,7 +145,7 @@ $studentList = $actionClass->attendanceStudents($class_id, $class_date);
             </div>
             <div class="d-flex w-100 justify-content-center align-items-center">
                 <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                    <button class="btn btn-primary rounded-pill w-100" type="submit">Save Attendance</button>
+                    <button class="btn btn-primary rounded-pill w-100" type="submit">Сохранить посещаемость</button>
                 </div>
             </div>
             <?php endif; ?>
@@ -212,7 +212,7 @@ $studentList = $actionClass->attendanceStudents($class_id, $class_date);
                     var name = $(this).find('td').first().text() || "";
                         name = String(name).trim();
                     console.log(name)
-                    alert(`${name}'s attendance is not yet marked!`);
+                    alert(`${name} посещаемость еще не отмечена!`);
                     end_loader()
                     return false;
                 }
@@ -224,7 +224,7 @@ $studentList = $actionClass->attendanceStudents($class_id, $class_date);
                 dataType: 'JSON',
                 error: (err) => {
                     console.error(err)
-                    alert("An error occurred while saving the data. kindly reload this page.")
+                    alert("Произошла ошибка при сохранении данных. пожалуйста, перезагрузите эту страницу.")
                     end_loader();
                 },
                 success: function(resp){
@@ -237,7 +237,7 @@ $studentList = $actionClass->attendanceStudents($class_id, $class_date);
                         $('#msg').html(fd)
                         $('html, body').scrollTop(0)
                     }else{
-                        alert("An error occurred while saving the data. kindly reload this page.")
+                        alert("Произошла ошибка при сохранении данных. пожалуйста, перезагрузите эту страницу.")
                     }
                     end_loader();
                 }

@@ -14,9 +14,9 @@ $classList = $actionClass->list_class();
         <div class="row">
             <div class="col-12">
                 <div class="mb-3">
-                    <label for="class_id" class="form-label">Class Name & Subject</label>
+                    <label for="class_id" class="form-label">Название класса - Предмет</label>
                     <select type="text" class="form-select" id="class_id" name="class_id" required="required">
-                      <option value="" <?= !isset($id) ? "selected" : "" ?> disabled> -- Select Class Here -- </option>
+                      <option value="" <?= !isset($id) ? "selected" : "" ?> disabled> -- Выберите класс здесь -- </option>
                       <?php if(!empty($classList) && is_array($classList)): ?>
                       <?php foreach($classList as $row): ?>
                         <option value="<?= $row['id'] ?>" <?= (isset($class_id) && $class_id == $row['id']) ? "selected" : "" ?>><?= $row['name'] ?></option>
@@ -25,7 +25,7 @@ $classList = $actionClass->list_class();
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="name" class="form-label">Student Name</label>
+                    <label for="name" class="form-label">Имя студента</label>
                     <input type="text" class="form-control" id="name" name="name" value="<?= $name ?? "" ?>" required="required">
                 </div>
             </div>

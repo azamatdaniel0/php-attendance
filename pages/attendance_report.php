@@ -1,4 +1,4 @@
-<div class="page-title mb-3">Attendance Report</div>
+<div class="page-title mb-3">Отчёт о посещаемости</div>
 <hr>
 <?php 
 // $studentList = $actionClass->list_student();
@@ -21,9 +21,9 @@ if(!empty($class_month)){
                     <div class="container-fluid">
                         <div class="row align-items-end">
                             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                <label for="class_id" class="form-label">Class</label>
+                                <label for="class_id" class="form-label">Класс</label>
                                 <select name="class_id" id="class_id" class="form-select" required="required">
-                                    <option value="" disabled <?= empty($class_id) ? "selected" : "" ?>> -- Select Here -- </option>
+                                    <option value="" disabled <?= empty($class_id) ? "selected" : "" ?>> -- Выберите здесь -- </option>
                                     <?php if(!empty($classList) && is_array($classList)): ?>
                                     <?php foreach($classList as $row): ?>
                                         <option value="<?= $row['id'] ?>" <?= (isset($class_id) && $class_id == $row['id']) ? "selected" : "" ?>><?= $row['name'] ?></option>
@@ -32,7 +32,7 @@ if(!empty($class_month)){
                                 </select>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                <label for="class_month" class="form-label">Date</label>
+                                <label for="class_month" class="form-label">Дата</label>
                                 <input type="month" name="class_month" id="class_month" class="form-control" value="<?= $class_month ?? '' ?>" required="required">
                             </div>
                         </div>
@@ -44,12 +44,12 @@ if(!empty($class_month)){
                 <div class="card-body">
                     <div class="container-fluid">
                         <fieldset>
-                            <legend class="h6"><strong>Legend:</strong></legend>
+                            <legend class="h6"><strong>Легенда:</strong></legend>
                             <div class="ps-4">
-                                <div><span class="text-success fw-bold">P</span> <span class="ms-1">= Present</span></div>
-                                <div><span class="text-body-emphasis fw-bold">L</span> <span class="ms-1">= Late</span></div>
-                                <div><span class="text-danger fw-bold">A</span> <span class="ms-1">= Absent</span></div>
-                                <div><span class="text-primary fw-bold">H</span> <span class="ms-1">= Holiday</span></div>
+                                <div><span class="text-success fw-bold">НУ</span> <span class="ms-1">= На уроке</span></div>
+                                <div><span class="text-body-emphasis fw-bold">О</span> <span class="ms-1">= Опоздал</span></div>
+                                <div><span class="text-danger fw-bold">НБ</span> <span class="ms-1">= Не было</span></div>
+                                <div><span class="text-primary fw-bold">П</span> <span class="ms-1">= Праздник</span></div>
                             </div>
                         </fieldset>
                     </div>
@@ -64,14 +64,14 @@ if(!empty($class_month)){
                             <table id="attendance-rpt-tbl" class="table table-bordered">
                                 <thead>
                                     <tr class="bg-primary bg-opacity-75">
-                                        <th class="text-center bg-primary text-light" style="width:300px !important">Students</th>
+                                        <th class="text-center bg-primary text-light" style="width:300px !important">Студенты</th>
                                         <?php for($i=1; $i <= $monthLastDay; $i++): ?>
                                             <th class="text-center bg-transparent text-light" style="width:80px !important"><?= $i ?></th>
                                         <?php endfor; ?>
-                                        <th class="text-center bg-primary text-light">TP</th>
-                                        <th class="text-center bg-primary text-light">TL</th>
-                                        <th class="text-center bg-primary text-light">TA</th>
-                                        <th class="text-center bg-primary text-light">TH</th>
+                                        <th class="text-center bg-primary text-light">НУ</th>
+                                        <th class="text-center bg-primary text-light">О</th>
+                                        <th class="text-center bg-primary text-light">НБ</th>
+                                        <th class="text-center bg-primary text-light">П</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -121,7 +121,7 @@ if(!empty($class_month)){
                                     <?php endforeach; ?>
                                     <?php else: ?>
                                         <tr>
-                                            <td colspan="<?= $monthLastDay + 5 ?>" class="px-2 py-1 text-center">No Student Listed Yet</td>
+                                            <td colspan="<?= $monthLastDay + 5 ?>" class="px-2 py-1 text-center">В списке пока нет ни одного студента</td>
                                         </tr>
                                     <?php endif; ?>
                                 </tbody>

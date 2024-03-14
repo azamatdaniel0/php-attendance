@@ -1,4 +1,4 @@
-<div class="page-title mb-3">List of Classes</div>
+<div class="page-title mb-3">Список классов</div>
 <hr>
 <?php 
 $classList = $actionClass->list_class();
@@ -8,7 +8,7 @@ $classList = $actionClass->list_class();
         <div class="card shadow">
             <div class="card-header rounded-0">
                 <div class="d-flex w-100 justify-content-end align-items-center">
-                    <button class="btn btn-sm rounded-0 btn-primary" type="button" id="add_class"><i class="far fa-plus-square"></i> Add New</button>
+                    <button class="btn btn-sm rounded-0 btn-primary" type="button" id="add_class"><i class="far fa-plus-square"></i> Добавить</button>
                 </div>
             </div>
             <div class="card-body rounded-0">
@@ -23,8 +23,8 @@ $classList = $actionClass->list_class();
                             <thead class="bg-dark-subtle">
                                 <tr class="bg-transparent">
                                     <th class="bg-transparent text-center">ID</th>
-                                    <th class="bg-transparent text-center">Class Name - Subject</th>
-                                    <th class="bg-transparent text-center">Action</th>
+                                    <th class="bg-transparent text-center">Название класса - Предмет</th>
+                                    <th class="bg-transparent text-center">Действие</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,7 +43,7 @@ $classList = $actionClass->list_class();
                                 <?php endforeach; ?>
                                 <?php else: ?>
                                     <tr>
-                                        <th class="text-center px-2 py-1" colspan="3">No data found.</th>
+                                        <th class="text-center px-2 py-1" colspan="3">Данные не найдены.</th>
                                     </tr>
                                 <?php endif; ?>
                             </tbody>
@@ -78,7 +78,7 @@ $classList = $actionClass->list_class();
                     dataType: 'JSON',
                     error: (error) => {
                         console.error(error)
-                        alert('An error occurred.')
+                        alert('Произошла ошибка.')
                     },
                     success:function(resp){
                         if(resp?.status != '')

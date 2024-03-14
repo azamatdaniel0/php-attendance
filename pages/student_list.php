@@ -1,4 +1,4 @@
-<div class="page-title mb-3">List of Students</div>
+<div class="page-title mb-3">Список студентов</div>
 <hr>
 <?php 
 $studentList = $actionClass->list_student();
@@ -8,7 +8,7 @@ $studentList = $actionClass->list_student();
         <div class="card shadow">
             <div class="card-header rounded-0">
                 <div class="d-flex w-100 justify-content-end align-items-center">
-                    <button class="btn btn-sm rounded-0 btn-primary" type="button" id="add_student"><i class="far fa-plus-square"></i> Add New</button>
+                    <button class="btn btn-sm rounded-0 btn-primary" type="button" id="add_student"><i class="far fa-plus-square"></i> Добавить</button>
                 </div>
             </div>
             <div class="card-body rounded-0">
@@ -22,11 +22,11 @@ $studentList = $actionClass->list_student();
                                 <col width="20%">
                             </colgroup>
                             <thead class="bg-dark-subtle">
-                                <tr class="bg-transparent">
+                            <tr class="bg-transparent">
                                     <th class="bg-transparent text-center">ID</th>
-                                    <th class="bg-transparent text-center">Class Name - Subject</th>
-                                    <th class="bg-transparent text-center">Name</th>
-                                    <th class="bg-transparent text-center">Action</th>
+                                    <th class="bg-transparent text-center">Название класса - Предмет</th>
+                                    <th class="bg-transparent text-center">Имя</th>
+                                    <th class="bg-transparent text-center">Действие</th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -10,8 +10,8 @@
         
       </div>
       <div class="modal-footer rounded-0">
-        <button type="submit" form="" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" form="" class="btn btn-primary">Сохранить</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отменить</button>
       </div>
     </div>
   </div>
